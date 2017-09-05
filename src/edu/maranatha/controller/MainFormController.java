@@ -50,6 +50,7 @@ public class MainFormController implements Initializable {
     private ComboBox<Department> comboDepartment;
     private Stage departmentStage;
     private ObservableList<Department> departments;
+    private SecondFormController secondFormController;
     private ObservableList<Student> students;
     @FXML
     private TableView<Student> tableStudent;
@@ -149,6 +150,8 @@ public class MainFormController implements Initializable {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(MainApp.class.getResource("view/SecondForm.fxml"));
                 AnchorPane root = loader.load();
+                secondFormController = loader.getController();
+                secondFormController.setMainController(this);
                 Scene scene = new Scene(root);
                 departmentStage = new Stage();
                 departmentStage.setScene(scene);
