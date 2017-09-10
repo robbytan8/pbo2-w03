@@ -158,12 +158,11 @@ public class MainFormController implements Initializable {
                 departmentStage.setTitle("Department Management");
                 departmentStage.initOwner(borderPane.getScene().getWindow());
                 departmentStage.initModality(Modality.WINDOW_MODAL);
-                departmentStage.show();
             } catch (IOException ex) {
                 Logger.getLogger(MainFormController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (departmentStage.isFocused()) {
+        if (departmentStage.isShowing() && !departmentStage.isFocused()) {
             departmentStage.toFront();
         } else {
             departmentStage.show();
